@@ -1,0 +1,58 @@
+.container {
+  margin-right: 100px;
+  padding: 10px;
+  position: absolute;
+  top: 50px;
+  width: 200px;
+  background-color: rgb(165, 235, 165);
+  box-shadow: 0 4px 8px 0 rgba(18, 58, 8, 0.2),
+    0 6px 20px 0 rgba(6, 53, 9, 0.19);
+}
+.user_menu__container {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  right: 100px;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  z-index: 900;
+}
+.loginedSpan {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  font-style: italic;
+  color: rgb(100, 93, 93);
+}
+.user_avatar {
+  margin: 0;
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.user_name {
+  text-transform: uppercase;
+  color: rgb(6, 58, 161);
+  font-size: 14px;
+}
+.userMenu__list {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+.userMenu__item {
+  display: block;
+  padding: 10px;
+}
+.userMenu__link {
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 15px;
+}
+.signOutBtn {
+  position: relative;
+  left: 140px;
+}

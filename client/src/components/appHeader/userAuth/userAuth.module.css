@@ -1,0 +1,33 @@
+.wrap {
+  display: flex;
+  position: absolute;
+  right: 150px;
+  width: 200px;
+  justify-content: space-around;
+}
+
+.link {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  color: rgb(76, 77, 76);
+  font-size: 15px;
+  background-color: transparent;
+}
+.link_active {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 3px 12px;
+  font-size: 15px;
+  background-color: rgb(215, 236, 138);
+  border-radius: 40%;
+  transform: scale(1.2);
+  box-shadow: 0 2px 2px 0 rgba(18, 58, 8, 0.2),
+    0 6px 20px 0 rgba(6, 53, 9, 0.19);
+}
+.link:hover {
+  transform: scale(1.2);
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "email",
+    "type": "email",
+    "placeholder": "Email...",
+    "autoComplete": "off",
+    "label": "@mail"
+  },
+  {
+    "name": "password",
+    "type": "password",
+    "placeholder": "Password...",
+    "autoComplete": "off",
+    "label": "Password"
+  }
+]

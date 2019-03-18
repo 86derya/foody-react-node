@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Bob Maison",
+    "id": 1,
+    "avatar": "https://cdn.pixabay.com/photo/2016/04/30/08/35/aircraft-1362587__340.jpg",
+    "email": "template@gmail.com",
+    "phone": "1234569"
+  },
+  {
+    "name": "Tomas Cook",
+    "id": 2,
+    "avatar": "../data/avatar.jpg"
+  }
+]

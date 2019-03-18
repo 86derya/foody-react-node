@@ -1,0 +1,44 @@
+.authorization {
+  margin: 0 auto;
+  background-color: rgb(231, 245, 169);
+}
+
+.auth_container {
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth_form {
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  box-shadow: 0 4px 4px 0 rgba(18, 58, 8, 0.2),
+    0 6px 20px 0 rgba(6, 53, 9, 0.19);
+}
+
+.button {
+  /* display: block; */
+  background: rgb(140, 247, 185);
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.input {
+  margin-top: 6px;
+  padding: 6px 6px;
+  border-radius: 8px;
+  font-size: 16px;
+}

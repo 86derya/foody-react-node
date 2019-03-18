@@ -1,0 +1,20 @@
+[
+  {
+    "name": "address",
+    "type": "text",
+    "placeholder": "Address...",
+    "autocomplete": "nope"
+  },
+  {
+    "name": "rating",
+    "type": "text",
+    "placeholder": "Rating...",
+    "autocomplete": "off"
+  },
+  {
+    "name": "price",
+    "type": "text",
+    "placeholder": "Price...",
+    "autocomplete": "off"
+  }
+]

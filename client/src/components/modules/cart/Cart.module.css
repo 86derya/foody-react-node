@@ -1,0 +1,105 @@
+.cart_container h2 {
+  padding: 10px;
+  position: fixed;
+  right: 0;
+}
+.cart_container h2 span {
+  padding: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(58, 170, 36);
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(18, 58, 8, 0.2),
+    0 6px 20px 0 rgba(6, 53, 9, 0.19);
+}
+.cart_container {
+  margin: 0 auto;
+  position: relative;
+}
+.cart_container table {
+  margin: 0 auto;
+  position: relative;
+}
+.cartTable_headRow {
+  line-height: 60px;
+}
+.cartTable_headCell {
+  min-width: 150px;
+  background-color: rgb(3, 114, 57);
+}
+.cartTable_bodyRow td {
+  padding: 10px;
+  text-align: center;
+}
+.cartTable_bodyRow td:first-child {
+  padding: 10px 10px;
+  text-align: left;
+}
+.cartTable_bodyRow td:last-child {
+  background-color: transparent;
+  border: none;
+}
+.cartTable_dishLink {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+.cartTable_dishLink img {
+  margin-right: 20px;
+  border-radius: 50%;
+}
+.incrementBtn,
+.decrementBtn {
+  width: 30px;
+  height: 30px;
+  outline: none;
+  background-color: transparent;
+  background-size: contain;
+  cursor: pointer;
+  border: none;
+}
+
+.incrementBtn {
+  margin-left: 15px;
+  background-image: url('../../../data/incrementBtn.png');
+}
+.decrementBtn {
+  margin-right: 15px;
+  background-image: url('../../../data/decrementBtn.png');
+}
+.decrementBtn:active {
+  transform: scale(0.9, 0.9);
+}
+.incrementBtn:active {
+  transform: scale(0.9, 0.9);
+}
+
+.deleteBtn {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  background-image: url('../../../data/trash.png');
+  background-size: contain;
+  cursor: pointer;
+  border: none;
+}
+.deleteBtn:active {
+  transform: translateY(4px);
+}
+.cartTable_totalPrice {
+  display: block;
+  padding-top: 40px;
+}
+.cart_container th,
+td {
+  border: 1px solid rgba(6, 53, 16, 0.26);
+  /* border-collapse: collapse; */
+}
+.cartTable_tdQty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

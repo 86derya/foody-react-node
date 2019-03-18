@@ -1,0 +1,129 @@
+.dish_page {
+  display: block;
+  margin: 0 auto;
+  height: 100vh;
+  padding: 20px;
+  /* background-color: rgba(143, 235, 212, 0.959); */
+}
+
+p {
+  display: block;
+  margin: 0 auto;
+}
+.container {
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+}
+.dish_details {
+  display: block;
+  margin: 0;
+  padding: 20px;
+  width: 50%;
+  background-color: rgba(221, 235, 143, 0.959);
+}
+.dish__ingredients_list {
+  display: block;
+}
+.dish__ingredients_item {
+  display: block;
+}
+.dish__image {
+  width: 200px;
+  height: auto;
+}
+.dish__user_feeddback {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(221, 235, 143, 0.959);
+  border-left-style: groove;
+}
+.comments_list {
+  display: block;
+  margin: 20px auto 10px;
+  width: 100%;
+  padding: 0;
+  list-style: square;
+}
+.comments__item {
+  display: block;
+  margin: 0 auto 10px;
+  padding: 6px;
+
+  box-shadow: 0 1px 2px 0 rgba(18, 58, 8, 0.2),
+    0 1px 1px 0 rgba(85, 240, 95, 0.19);
+}
+.comments__input_text {
+  display: block;
+  margin: 0 auto 10px;
+  padding: 10px;
+  width: 90%;
+  min-height: 150px;
+  font-size: 18px;
+  resize: vertical;
+}
+.comments__rating_select {
+  display: block;
+  margin: 10px;
+  width: 50px;
+  height: 30px;
+  font-size: 18px;
+}
+.button {
+  background: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+.comments__rating_label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+.goBackBtn {
+  display: block;
+  padding: 0;
+  position: fixed;
+  top: 120px;
+  left: 0;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+}
+.goBackBtn:hover {
+  transform: scale(1.1);
+}
+.goBackBtn img {
+  display: block;
+  padding: 0;
+  height: 40px;
+}
+
+.addToCartBtn {
+  position: fixed;
+  top: 20vw;
+  left: 0px;
+  background: none;
+  background-image: url('../../../data/shopping-cart-default.png');
+  background-size: contain;
+  border: none;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  opacity: 0.5;
+  outline: none;
+}
+.addToCartBtn:hover {
+  border: none;
+  width: 62px;
+  height: 62px;
+  opacity: 1;
+}
+.addToCartBtn:active {
+  background-image: url('../../../data/shopping-cart-active.png');
+  transform: translateY(4px);
+}
