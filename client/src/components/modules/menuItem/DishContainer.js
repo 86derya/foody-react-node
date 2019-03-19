@@ -22,12 +22,13 @@ class DishContainer extends Component {
 
   componentDidMount() {
     const { id } = this.props;
-
-    getMenuItemById(id).then(({ data }) =>
+    // console.log(id);
+    getMenuItemById(id).then(data => {
+      const { menuItem } = data;
       this.setState({
-        dishItem: data,
-      }),
-    );
+        dishItem: menuItem,
+      });
+    });
   }
 
   // updateCommentList = () => {

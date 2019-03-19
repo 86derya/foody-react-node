@@ -1,9 +1,10 @@
 const createMenuItem = require("./createMenuItem");
 // const updateProduct = require("./updateProduct");
 const getMenuItems = require("./getMenuItems");
-// const getProductById = require("./getProductById");
+const getMenuItemById = require("./getMenuItemById");
 
 module.exports = {
   createMenuItem,
-  getMenuItems
+  getMenuItems,
+  getMenuItemById
 };

@@ -4,11 +4,11 @@ import styles from '../Menu.module.css';
 import MenuGridCard from './MenuGridCardView';
 
 const MenuGrid = ({ dishList, match, location, onAddToCart }) => {
-  const MenuGridItem = dishList.map(({ id, name, price, image }) => (
-    <li className={styles.menu_item} key={id}>
+  const MenuGridItem = dishList.map(({ _id, name, price, image }) => (
+    <li className={styles.menu_item} key={_id}>
       <Link
         to={{
-          pathname: `${match.url}/${id}`,
+          pathname: `${match.url}/${_id}`,
           state: { from: location },
         }}
       >
@@ -17,7 +17,7 @@ const MenuGrid = ({ dishList, match, location, onAddToCart }) => {
       <button
         className={styles.addToCartBtn}
         type="button"
-        onClick={() => onAddToCart(id)}
+        onClick={() => onAddToCart(_id)}
       />
     </li>
   ));

@@ -7,7 +7,7 @@ const router = require("./router");
 const path = require("path");
 const fs = require("fs");
 const config = require("../config");
-const corsMiddlware = require("cors");
+const cors = require("cors");
 const errorHandler = (request, response, next) => {
   response.status(500).send("No such page");
   next();
@@ -40,7 +40,7 @@ const startServer = port => {
     // .use(checkAuth)
     .use(express.static(staticPath))
     .use("/", router)
-    .use(corsMiddlware())
+    .use(cors())
     .use(errorHandler);
   http.createServer(app).listen(port);
 

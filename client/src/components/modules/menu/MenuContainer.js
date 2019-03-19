@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
 
@@ -9,7 +9,7 @@ import { cartActions } from '../cart/duck';
 const getCategoryFromProps = props =>
   queryString.parse(props.location.search).category;
 
-class MenuContainer extends Component {
+class MenuContainer extends PureComponent {
   componentDidMount() {
     const category = getCategoryFromProps(this.props);
     const {
@@ -17,7 +17,7 @@ class MenuContainer extends Component {
       fetchAvailableCategories,
       getFilterByCategory,
     } = this.props;
-
+    console.log('BAMS');
     getFilterByCategory(category);
 
     fetchAvailableCategories();
@@ -25,15 +25,29 @@ class MenuContainer extends Component {
     return fetchMenuItems(category);
   }
 
-  componentDidUpdate(prevProps) {
-    const { fetchMenuItems } = this.props;
-    const prevCategory = getCategoryFromProps(prevProps);
-    const nextCategory = getCategoryFromProps(this.props);
+  // shouldComponentUpdate(prevProps) {
+  //   // const { getFilterByCategory } = this.props;
+  //   const currentCategory = getCategoryFromProps(this.props);
 
-    if (prevCategory !== nextCategory) {
-      fetchMenuItems(nextCategory);
-    }
-  }
+  //   const nextCategory = getCategoryFromProps(prevProps);
+  //   console.log(currentCategory + nextCategory);
+  //   // console.log(nextCategory);
+  //   // if (currentCategory !== nextCategory) {
+  //   //   return false;
+  //   // }
+  //   return true;
+  // }
+
+  // componentDidUpdate(prevProps) {
+  //   const { fetchMenuItems } = this.props;
+
+  //   const prevCategory = getCategoryFromProps(prevProps);
+  //   const nextCategory = getCategoryFromProps(this.props);
+
+  //   if (prevCategory !== nextCategory) {
+  //     fetchMenuItems(nextCategory);
+  //   }
+  // }
 
   render() {
     return <Menu {...this.props} />;

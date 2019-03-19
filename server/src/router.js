@@ -3,7 +3,11 @@ const mainRoute = require("./controllers/main/main");
 const { login, logout, signUp, getUserByToken } = require("./controllers/auth");
 const verifyToken = require("./modules/verifyToken");
 
-const { createMenuItem, getMenuItems } = require("./controllers/menuItems");
+const {
+  createMenuItem,
+  getMenuItems,
+  getMenuItemById
+} = require("./controllers/menuItems");
 
 const {
   createUser,
@@ -21,6 +25,7 @@ const { createIngredient } = require("./controllers/ingredients/");
 
 const { createOrder, getOrderById } = require("./controllers/orders");
 const { createComment, getComments } = require("./controllers/comments");
+const { getAllCategories } = require("./controllers/categories");
 
 const apiRoutes = express.Router();
 
@@ -31,6 +36,7 @@ apiRoutes
   // .use(verifyToken)
   .post("/menu", createMenuItem)
   .get("/menu", getMenuItems)
+  .get("/menu/:id", getMenuItemById)
   .get("/auth/current", getUserByToken)
   .get("/auth/logout", logout)
   .get("/", mainRoute)
@@ -46,6 +52,7 @@ apiRoutes
   .get("/orders/:id", getOrderById)
   .post("/ingredients", createIngredient)
   .post("/comments", createComment)
-  .get("/comments", getComments);
+  .get("/comments", getComments)
+  .get("/categories", getAllCategories);
 
 module.exports = apiRoutes;
