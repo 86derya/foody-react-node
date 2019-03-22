@@ -20,27 +20,29 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = null;
 };
 
-export const signUp = credentials => dispatch => {
-  dispatch(authRequest());
-
-  axios
-    .post('http://localhost:4040/auth/signup', credentials)
-    .then(({ data }) => {
-      setAuthHeader(data.token);
-      dispatch(authSuccess(data));
-    })
-    .catch(error => dispatch(authError(error)));
-};
+// export const signUp = credentials => dispatch => {
+//   axios
+//     .post('http://localhost:8080/auth/register', credentials)
+//     .then(
+//       ({ data }) =>
+//         data.status === 'success'
+//           ? dispatch(authSuccess(data))
+//           : dispatch(authError(data.user)),
+//       // setAuthHeader(data.token);
+//     )
+//     .catch(error => console.log(error));
+// };
 
 export const signIn = credentials => dispatch => {
   dispatch(authRequest());
 
   axios
-    .post('http://localhost:4040/auth/signin', credentials)
-    .then(({ data }) => {
-      setAuthHeader(data.token);
-      dispatch(authSuccess(data));
-    })
+    .post('http://localhost:8080/auth/login', credentials)
+    .then(({ data }) =>
+      data.status === 'success'
+        ? (setAuthHeader(data.token), dispatch(authSuccess(data)))
+        : dispatch(authError(data.message)),
+    )
     .catch(error => dispatch(authError(error)));
 };
 
@@ -56,7 +58,7 @@ export const signOut = () => (dispatch, getState) => {
   };
 
   return axios
-    .post('http://localhost:4040/auth/signout', {}, config)
+    .post('http://localhost:8080/auth/signout', {}, config)
     .then(() => {
       dispatch(signOutSuccess());
       dispatch(cleanCart());
@@ -73,7 +75,7 @@ export const getCurrentUser = () => (dispatch, getState) => {
   dispatch(getCurrentUserRequest());
 
   axios
-    .get('http://localhost:4040/auth/current')
+    .post('http://localhost:8080/auth/current')
     .then(({ data }) => {
       setAuthHeader(token);
       return dispatch(getCurrentUserSuccess(data.user));

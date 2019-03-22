@@ -9,8 +9,8 @@ const user = (state = null, { type, payload }) => {
       return payload.user;
 
     case actionTypes.AUTH_ERROR:
-      alert(payload.error.response.data.message);
-      return payload.error;
+      alert('case actionTypes.AUTH_ERROR', payload);
+      return payload;
     case actionTypes.SIGN_OUT_SUCCESS:
       return null;
 

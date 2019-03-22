@@ -6,7 +6,8 @@ const verifyToken = require("./modules/verifyToken");
 const {
   createMenuItem,
   getMenuItems,
-  getMenuItemById
+  getMenuItemById,
+  createComment
 } = require("./controllers/menuItems");
 
 const {
@@ -24,7 +25,7 @@ const {
 const { createIngredient } = require("./controllers/ingredients/");
 
 const { createOrder, getOrderById } = require("./controllers/orders");
-const { createComment, getComments } = require("./controllers/comments");
+const { getComments } = require("./controllers/comments");
 const { getAllCategories } = require("./controllers/categories");
 
 const apiRoutes = express.Router();
@@ -37,7 +38,8 @@ apiRoutes
   .post("/menu", createMenuItem)
   .get("/menu", getMenuItems)
   .get("/menu/:id", getMenuItemById)
-  .get("/auth/current", getUserByToken)
+  // .put("/menu/:id/comments", createComment)
+  .post("/auth/current", getUserByToken)
   .get("/auth/logout", logout)
   .get("/", mainRoute)
   .get("/users", getUsers)
@@ -51,7 +53,8 @@ apiRoutes
   .post("/orders", createOrder)
   .get("/orders/:id", getOrderById)
   .post("/ingredients", createIngredient)
-  .post("/comments", createComment)
+
+  // .post("/comments", createComment)
   .get("/comments", getComments)
   .get("/categories", getAllCategories);
 

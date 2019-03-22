@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { signIn, signUp } from '../../session/sessionOperations';
+import { signIn } from '../../session/sessionOperations';
 import { getIsAuthenticated } from '../../session/sessionSelectors';
 
 const withAuth = WrappedComponent => {
@@ -29,7 +29,6 @@ const withAuth = WrappedComponent => {
 
   const mapDispatchToProps = {
     signIn,
-    signUp,
   };
   return connect(
     mapStateToProps,

@@ -41,6 +41,7 @@ const startServer = port => {
     .use(express.static(staticPath))
     .use("/", router)
     .use(cors())
+    .disable("etag") //disables 304
     .use(errorHandler);
   http.createServer(app).listen(port);
 

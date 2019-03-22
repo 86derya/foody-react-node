@@ -1,24 +1,38 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
+const ObjectId = mongoose.Schema.Types.ObjectId;
 const timestamp = require("../middleware/timestamp");
-var uniqueValidator = require("mongoose-unique-validator");
+const uniqueValidator = require("mongoose-unique-validator");
+const COMMENT = require("./comment");
+const ORDER = require("./order");
+const MENU_ITEM = require("./menu-item");
 
 const userSchema = new Schema({
-  firstName: String,
-  lastName: String,
-  telephone: String,
+  id: ObjectId,
+  firstName: { type: String, default: "N/A" },
+  lastName: { type: String, default: "N/A" },
+  phone: { type: String, default: "N/A" },
   nickName: { type: String, required: true, unique: true },
-  location: String,
+  location: { type: String, default: "N/A" },
   password: String,
   email: { type: String, required: true, unique: true },
-  favoriteProducts: Array,
-  viewedProducts: Array,
-  orders: Array
+  orders: [
+    {
+      type: ObjectId,
+      ref: ORDER
+    }
+  ],
+  comments: [
+    {
+      type: ObjectId,
+      ref: COMMENT
+    }
+  ]
 });
 
 userSchema.plugin(timestamp);
 userSchema.plugin(uniqueValidator);
 
-const User = mongoose.model("User", userSchema);
+const user = mongoose.model("user", userSchema);
 
-module.exports = User;
+module.exports = user;

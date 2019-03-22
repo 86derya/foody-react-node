@@ -1,7 +1,7 @@
 .wrap {
   display: flex;
   position: absolute;
-  right: 150px;
+  right: 100px;
   width: 200px;
   justify-content: space-around;
 }
@@ -12,8 +12,8 @@
   text-decoration: none;
   text-transform: uppercase;
   padding: 3px 12px;
-  color: rgb(76, 77, 76);
-  font-size: 15px;
+  color: rgb(107, 163, 146);
+  font-size: 14px;
   background-color: transparent;
 }
 .link_active {
@@ -26,8 +26,9 @@
   border-radius: 40%;
   transform: scale(1.2);
   box-shadow: 0 2px 2px 0 rgba(18, 58, 8, 0.2),
-    0 6px 20px 0 rgba(6, 53, 9, 0.19);
+    0 6px 20px 0 rgba(10, 148, 141, 0.19);
 }
 .link:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
+  color: rgb(6, 68, 104);
 }

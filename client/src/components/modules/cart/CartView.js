@@ -38,12 +38,12 @@ const CartView = ({
       {cell}
     </th>
   ));
-  const row = dishes.map(({ id, image, name, price, qty }) => (
-    <tr className={styles.cartTable_bodyRow} key={id}>
+  const row = dishes.map(({ _id, image, name, price, qty }) => (
+    <tr className={styles.cartTable_bodyRow} key={_id}>
       <td>
         <Link
           to={{
-            pathname: `/menu/${id}`,
+            pathname: `/menu/${_id}`,
             state: { from: location },
           }}
           className={styles.cartTable_dishLink}
@@ -55,14 +55,14 @@ const CartView = ({
       <td> {price} </td>
       <td>
         <div className={styles.cartTable_tdQty}>
-          <DecrementDishBtn id={id} />
+          <DecrementDishBtn id={_id} />
           <span>{qty}</span>
-          <IncrementDishBtn id={id} />
+          <IncrementDishBtn id={_id} />
         </div>
       </td>
-      <td>{qty * price}</td>
+      <td> {qty * price} </td>
       <td>
-        <DeleteDishFromCart id={id} />
+        <DeleteDishFromCart id={_id} />
       </td>
     </tr>
   ));

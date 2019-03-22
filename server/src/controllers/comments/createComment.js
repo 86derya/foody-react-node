@@ -3,7 +3,10 @@ const Comment = require("../../modules/db/schemas/comment");
 const { createdFailed, createdSuccess } = require("./configs/responses");
 
 const createComment = (request, response) => {
+  const id = request.params.id;
   const comment = request.body;
+  console.log(id);
+  console.log(comment);
 
   const newComment = new Comment(comment);
 

@@ -1,13 +1,20 @@
 .header {
   margin: 0 auto 20px;
   padding: 10px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
   background-color: rgb(165, 235, 165);
 
   box-shadow: 0 4px 8px 0 rgba(18, 58, 8, 0.2),
     0 6px 20px 0 rgba(6, 53, 9, 0.19);
+}
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* display: block; */
+  margin: 0 auto;
+  position: relative;
+  width: 1260px;
 }
 .site_logo {
   width: 90px;

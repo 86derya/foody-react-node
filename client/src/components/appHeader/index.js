@@ -13,14 +13,16 @@ import styles from './AppHeader.module.css';
 
 const Header = ({ isAuthenticated, user, onSignOut, history, location }) => (
   <div className={styles.header}>
-    <SiteLogo />
-    <SiteNav />
-    {isAuthenticated ? (
-      <UserMenu user={user} onSignOut={onSignOut} history={history} />
-    ) : (
-      <UserAuth history={history} location={location} />
-    )}
-    <CartLink />
+    <div className={styles.header__container}>
+      <SiteLogo />
+      <SiteNav />
+      {isAuthenticated ? (
+        <UserMenu user={user} onSignOut={onSignOut} history={history} />
+      ) : (
+        <UserAuth history={history} location={location} />
+      )}
+      <CartLink />
+    </div>
   </div>
 );
 

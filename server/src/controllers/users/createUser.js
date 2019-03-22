@@ -5,7 +5,7 @@ const { userCreatedFail, userCreatedSuccess } = require("./configs/responses");
 
 const createUser = (request, response) => {
   const user = request.body;
-
+  console.log(user);
   const hashedPassword = bcrypt.hashSync(user.password, 10);
   const userData = { ...user, password: hashedPassword };
 

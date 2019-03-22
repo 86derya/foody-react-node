@@ -22,7 +22,7 @@ class DishContainer extends Component {
 
   componentDidMount() {
     const { id } = this.props;
-    // console.log(id);
+    console.log(id);
     getMenuItemById(id).then(data => {
       const { menuItem } = data;
       this.setState({
@@ -113,7 +113,7 @@ class DishContainer extends Component {
             <button
               type="button"
               className={styles.addToCartBtn}
-              onClick={() => onAddToCart(Number(id))}
+              onClick={() => onAddToCart(id)}
             />
             <div className={styles.dish__user_feeddback}>
               Comments:

@@ -5,11 +5,14 @@ var jwt = require("jsonwebtoken");
 const { idSerchSuccess, idSearchFailed } = require("./configs/responses");
 
 const getUserByToken = (request, response) => {
-  const token = request.headers["x-access-token"];
+  console.log(request.headers["authorization"]);
+  const token = request.headers["authorization"];
+  const cleanToken = token.replace("Bearer ", "").trim();
+  console.log(cleanToken);
   const secretKey = app.get("superSecret");
   let userId;
 
-  jwt.verify(token, secretKey, (err, decoded) => {
+  jwt.verify(cleanToken, secretKey, (err, decoded) => {
     if (err) {
       return response.json({
         success: false,
@@ -18,7 +21,7 @@ const getUserByToken = (request, response) => {
     }
 
     userId = decoded.userid;
-
+    console.log("userId", decoded);
     User.findById(userId)
       .then(user => idSerchSuccess(response, user))
       .catch(err => {

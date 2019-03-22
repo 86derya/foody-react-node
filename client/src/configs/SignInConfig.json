@@ -1,10 +1,10 @@
 [
   {
-    "name": "email",
-    "type": "email",
-    "placeholder": "Email...",
+    "name": "login",
+    "type": "login",
+    "placeholder": "Email or nickName...",
     "autoComplete": "off",
-    "label": "@mail"
+    "label": "login"
   },
   {
     "name": "password",

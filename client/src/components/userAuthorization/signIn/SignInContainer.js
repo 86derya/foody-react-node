@@ -5,7 +5,7 @@ import styles from '../Authorization.module.css';
 import SignInConfig from '../../../configs/SignInConfig.json';
 
 const INITIAL_STATE = {
-  email: '',
+  login: '',
   password: '',
 };
 

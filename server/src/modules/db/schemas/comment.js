@@ -1,28 +1,27 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const timestamp = require("../middleware/timestamp");
-var uniqueValidator = require("mongoose-unique-validator");
-var ObjectId = mongoose.Schema.Types.ObjectId;
-const user = require("./user");
-const product = require("./product");
+const uniqueValidator = require("mongoose-unique-validator");
+const ObjectId = mongoose.Schema.Types.ObjectId;
+const USER = require("./user");
+const MENU_ITEM = require("./menu-item");
 
 const commentSchema = new Schema({
   id: ObjectId,
-  product: {
+  menuItem: {
     type: ObjectId,
-    ref: product,
-    required: true
-  },
-  author: {
-    type: ObjectId,
-    ref: user,
-    required: true
+    ref: MENU_ITEM
   },
   text: String,
+  name: {
+    ObjectId,
+    ref: USER
+  },
   mark: {
     type: Number,
     min: 1,
-    max: 5
+    max: 10,
+    default: 0
   }
 });
 

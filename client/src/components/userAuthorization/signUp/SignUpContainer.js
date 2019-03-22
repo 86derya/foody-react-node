@@ -1,15 +1,17 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import withAuth from '../../hocs/withAuth';
 import styles from '../Authorization.module.css';
 import SignUpConfig from '../../../configs/SignUpConfig.json';
+import signUp from '../../../services/apiSignUp';
+import routes from '../../../configs/routes';
 
 const INITIAL_STATE = {
-  name: '',
+  nickName: '',
   email: '',
   password: '',
   phone: '',
 };
+const redirectTo = routes.SIGN_IN;
 class SignUp extends Component {
   state = { ...INITIAL_STATE };
 
@@ -19,8 +21,17 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { signUp } = this.props;
-    signUp({ ...this.state });
+    const { history } = this.props;
+    signUp({ ...this.state }).then(({ data }) =>
+      data.status === 'success'
+        ? (alert(
+            `User with nickName: < ${
+              data.user.nickName
+            } > created successfuly. Process to login with your credentials`,
+          ),
+          history.push(redirectTo))
+        : alert(`Try again`),
+    );
     this.reset();
   };
 
@@ -59,4 +70,4 @@ class SignUp extends Component {
     );
   }
 }
-export default withAuth(SignUp);
+export default SignUp;

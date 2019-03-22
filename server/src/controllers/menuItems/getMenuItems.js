@@ -58,7 +58,7 @@ const getMenuItems = (request, response) => {
       .populate("comments")
       .exec(function(err, menuItems) {
         if (err) {
-          allMenuItemsfromDbFailed(response);
+          allMenuItemsfromDbFailed(response, err);
         } else {
           allMenuItemsfromDbSuccess(response, menuItems);
         }

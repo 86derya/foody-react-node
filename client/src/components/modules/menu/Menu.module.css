@@ -8,8 +8,8 @@
   position: relative;
   display: block;
   margin: 0 auto;
-  padding: 0;
-  width: 90%;
+  padding: 20px;
+  width: 1260px;
 }
 .input,
 .filterByName_input {
@@ -22,11 +22,12 @@
 }
 .filterByName_summary {
   position: absolute;
+  color: rgb(17, 14, 14);
   left: 454px;
-  top: 51px;
+  top: 90px;
 }
 .filterByName_filterBy {
-  color: purple;
+  color: rgb(143, 5, 197);
 }
 .filterByName_blinking {
   animation-name: blinker;
@@ -57,16 +58,15 @@
   }
 }
 .menu__grid_container {
-  display: block;
+  display: flex;
   margin: 0 auto;
   padding: 0;
-  /* max-width: 90%; */
 }
 
 .menu_list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   justify-content: flex-start;
 }
@@ -77,11 +77,13 @@
   margin: 4px;
   padding: 10px;
   list-style: none;
-  width: 350px;
+  text-decoration: none;
+  width: 284px;
   height: 300px;
-  background-color: rgb(165, 235, 165);
+  background-color: rgb(165, 235, 165, 0.6);
   box-shadow: 0 4px 8px 0 rgba(18, 58, 8, 0.2),
-    0 6px 20px 0 rgba(6, 53, 9, 0.19);
+    0 6px 20px 0 rgba(201, 219, 202, 0.19);
+
   border-radius: 8px;
 }
 /* .menu_item:not(:nth-child(-n + 4)) {
@@ -90,7 +92,16 @@
 .menu_item:not(:nth-child(4n)) {
   margin-right: 27px;
 } */
-
+.menu_item:hover {
+  transition: 5;
+  background-color: rgb(165, 235, 165, 0.9);
+  box-shadow: 0 4px 8px 0 rgba(18, 58, 8, 0.2),
+    0 8px 20px 0 rgba(5, 20, 6, 0.19);
+}
+.menu_item_link {
+  text-decoration: none;
+  color: black;
+}
 .menu_card_image {
   display: block;
   margin: 0 auto;
@@ -99,18 +110,36 @@
 }
 .menu_card_title {
   display: block;
-  margin: 20px auto;
+  margin: 10px auto;
   padding: 0;
   width: 100%;
+  font-weight: 700;
 }
 .menu_card_price {
+  position: absolute;
+  bottom: 6px;
   margin: 0;
   padding: 0;
 }
 .menu_card_description {
   display: block;
   margin: 0;
+  margin-bottom: 10px;
   padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.menu_card_description:hover {
+  position: absolute;
+  margin: 0, 5px;
+  padding: 6px;
+  bottom: 14px;
+  left: 6px;
+  right: 6px;
+  color: black;
+  background-color: rgb(235, 183, 135);
+  white-space: initial;
 }
 .addDish__link {
   display: block;
@@ -160,9 +189,8 @@
 }
 .categorySelector_container {
   position: absolute;
-
-  left: 422px;
-  top: 4px;
+  left: 442px;
+  top: 50px;
 }
 .selectedCategory__descr {
   display: inline;
@@ -173,11 +201,12 @@
   color: purple;
 }
 .button__clearFilter {
+  position: relative;
+  left: 4px;
   color: rgb(236, 6, 6);
-  font-size: 20px;
+  font-size: 14px;
   background-color: transparent;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -189,16 +218,16 @@
   background-image: url('../../../data/shopping-cart-default.png');
   background-size: contain;
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.7;
   outline: none;
 }
 .addToCartBtn:hover {
   border: none;
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   opacity: 1;
 }
 .addToCartBtn:active {

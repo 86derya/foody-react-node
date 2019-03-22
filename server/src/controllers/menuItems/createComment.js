@@ -1,16 +1,19 @@
-const Product = require("../../modules/db/schemas/product");
+const MENU_ITEM = require("../../modules/db/schemas/menu-item");
 const {
   productUpdateSuccess,
   productUpdateFailed
 } = require("./configs/responses");
 
-const updateProduct = (request, response) => {
+const createComment = (request, response) => {
   const id = request.params.id;
-  const propertyToUpdate = request.body;
+  const comment = request.body;
 
-  Product.findOneAndUpdate(
+  console.log(id);
+  console.log(comment);
+
+  MENU_ITEM.findOneAndUpdate(
     { _id: id },
-    { $push: propertyToUpdate },
+    { $push: { comments: comment } },
     { new: true },
     function(error, product) {
       if (error) {
@@ -22,4 +25,4 @@ const updateProduct = (request, response) => {
   );
 };
 
-module.exports = updateProduct;
+module.exports = createComment;

@@ -1,10 +1,10 @@
 [
   {
-    "name": "name",
-    "type": "name",
-    "placeholder": "Your Name...",
+    "name": "nickName",
+    "type": "nickName",
+    "placeholder": "Your desired nickName...",
     "autoComplete": "off",
-    "label": "Name"
+    "label": "nickName"
   },
   {
     "name": "password",

@@ -6,12 +6,10 @@ const {
 const { checkPassword, generateToken } = require("./helpers");
 
 const login = (request, response) => {
-  const { username_email, password } = request.body;
+  const { login, password } = request.body;
+  console.log("login ", login, password);
 
-  User.findOne(
-    { $or: [{ email: username_email }, { nickName: username_email }] },
-    onFind
-  );
+  User.findOne({ $or: [{ email: login }, { nickName: login }] }, onFind);
 
   function onFind(err, user) {
     console.log(user);
@@ -23,11 +21,11 @@ const login = (request, response) => {
 
     const payload = {
       password,
-      userid: user.id
+      userid: user._id
     };
 
     isPasswordCorrect
-      ? authenticationSuccess(response, generateToken(payload))
+      ? authenticationSuccess(response, user, generateToken(payload))
       : authenticationFailed(response, "Incorrect Password");
   }
 };

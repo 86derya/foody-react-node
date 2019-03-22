@@ -3,9 +3,9 @@ module.exports = {
     response.status(200);
     response.json({ menuItems: allMenuItems });
   },
-  allMenuItemsfromDbFailed: function(response) {
+  allMenuItemsfromDbFailed: function(response, reason) {
     response.status(400);
-    response.json({ status: "failed", products: [] });
+    response.json({ status: "failed", menuItems: reason });
   },
   ctgryQuerySuccess: function(response, filteredProducts) {
     response.status(200);

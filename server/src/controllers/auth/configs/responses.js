@@ -1,7 +1,8 @@
 module.exports = {
-  authenticationSuccess: function(response, token) {
+  authenticationSuccess: function(response, user, token) {
     response.status(200);
     response.json({
+      user: user,
       status: "success",
       message: "enjoy Your Token",
       token: token

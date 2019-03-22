@@ -5,10 +5,10 @@ const uniqueValidator = require("mongoose-unique-validator");
 const ObjectId = mongoose.Schema.Types.ObjectId;
 const CATEGORY = require("./category");
 const INGREDIENT = require("./ingredient");
+const USER = require("./user");
 
 const menuItemSchema = new Schema({
   id: ObjectId,
-  // sku: { type: String, required: true, unique: true },
   name: { type: String, required: true, unique: true },
   description: String,
   image: String,
@@ -27,12 +27,24 @@ const menuItemSchema = new Schema({
       type: ObjectId,
       ref: INGREDIENT
     }
+  ],
+  comments: [
+    {
+      text: String,
+      rating: {
+        type: Number,
+        min: 1,
+        max: 10,
+        default: 0
+      },
+      Author: { ref: "USER", type: ObjectId } //{type: ObjectId, ref: USER} gives error!
+    }
   ]
 });
 
 menuItemSchema.plugin(timestamp);
 menuItemSchema.plugin(uniqueValidator);
 
-const MenuItem = mongoose.model("menu-item", menuItemSchema);
+const menuItem = mongoose.model("menu-item", menuItemSchema);
 
-module.exports = MenuItem;
+module.exports = menuItem;
