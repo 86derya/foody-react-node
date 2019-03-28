@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './MenuItem.module.css';
 
 const Dish = ({ currentDish }) => (

@@ -3,11 +3,11 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Spinner from './spinner';
-import Header from './appHeader';
+import Header from './modules/appHeader';
 import routes from '../configs/routes';
 // import Cart from './modules/cart';
-import PrivateRoute from './PrivateRoute';
-import { getCurrentUser } from '../session/sessionOperations';
+import PrivateRoute from './privateRoute';
+import { getCurrentUser } from './session/sessionOperations';
 
 const AsyncMenuPage = lazy(() =>
   import('../pages/Menu' /* webpackChunkName: "Menu-page" */),

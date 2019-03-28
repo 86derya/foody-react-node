@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { signIn } from '../../session/sessionOperations';
-import { getIsAuthenticated } from '../../session/sessionSelectors';
+import { signIn } from '../session/sessionOperations';
+import { getIsAuthenticated } from '../session/sessionSelectors';
 
 const withAuth = WrappedComponent => {
   class WithAuth extends Component {

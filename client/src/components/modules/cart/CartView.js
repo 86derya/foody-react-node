@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import tbodyCells from '../../../configs/CartTableConfig';
+import tbodyCells from './$configs/CartTableConfig';
 import styles from './Cart.module.css';
 
 const CartView = ({

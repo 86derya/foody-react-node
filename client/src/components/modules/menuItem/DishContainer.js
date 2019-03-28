@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import DishItem from './DishView';
 import styles from './MenuItem.module.css';
-import ratingOptions from '../../../configs/ratingOptions';
-import { getMenuItemById } from '../../../services/apiMenu';
+import ratingOptions from './$configs/ratingOptions';
+import getMenuItemById from './$services/api';
 import routes from '../../../configs/routes';
 
 import { cartActions } from '../cart/duck';
@@ -22,7 +22,7 @@ class DishContainer extends Component {
 
   componentDidMount() {
     const { id } = this.props;
-    console.log(id);
+    // console.log(id);
     getMenuItemById(id).then(data => {
       const { menuItem } = data;
       this.setState({

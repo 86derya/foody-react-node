@@ -2,12 +2,15 @@ const app = require("./app");
 const jwt = require("jsonwebtoken");
 
 const getToken = request =>
+  request.headers["authorization"] ||
   request.body.token ||
   request.query.token ||
   request.headers["x-access-token"];
 
 const checkToken = (request, response, next) => {
+  console.log("request ", request.headers);
   const token = getToken(request);
+  console.log("token,token ", token);
   const secretKey = app.get("superSecret");
 
   if (!token) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../OrderHistory.module.css';
-import tbodyCells from '../../../../configs/OrderHistoryTableConfig';
+import tbodyCells from '../$configs/OrderHistoryTableConfig';
 
 const OrderHistoryTable = ({ orders, onShowDetails }) => {
   const ShowMoreBtn = id => (

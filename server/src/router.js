@@ -34,13 +34,11 @@ apiRoutes
 
   .post("/auth/login", login)
   .post("/auth/register", signUp)
-  // .use(verifyToken)
   .post("/menu", createMenuItem)
   .get("/menu", getMenuItems)
   .get("/menu/:id", getMenuItemById)
+  .get("/categories", getAllCategories)
   // .put("/menu/:id/comments", createComment)
-  .post("/auth/current", getUserByToken)
-  .get("/auth/logout", logout)
   .get("/", mainRoute)
   .get("/users", getUsers)
   .get("/users/:id", getUserById)
@@ -50,12 +48,13 @@ apiRoutes
   .get("/products", getProducts)
   .put("/products/:id", updateProduct)
   .get("/products/:id", getProductById)
+  .post("/ingredients", createIngredient)
+  .use(verifyToken)
   .post("/orders", createOrder)
   .get("/orders/:id", getOrderById)
-  .post("/ingredients", createIngredient)
-
+  .post("/auth/current", getUserByToken)
+  .post("/auth/logout", logout)
   // .post("/comments", createComment)
-  .get("/comments", getComments)
-  .get("/categories", getAllCategories);
+  .get("/comments", getComments);
 
 module.exports = apiRoutes;

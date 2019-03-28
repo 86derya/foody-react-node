@@ -1,5 +1,5 @@
 import React from 'react';
-import UserAccount from '../components/userAccount';
+import UserAccount from '../components/modules/userAccount';
 
 const AccountPage = () => (
   <div>

@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import NewOrderFormConfig from '../../../../configs/NewOrderFormConfig.json';
+import NewOrderFormConfig from '../$configs/NewOrderFormConfig.json';
 import styles from './NewOrder.module.css';
 
 const INNITIAL_STATE = {

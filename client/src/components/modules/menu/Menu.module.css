@@ -150,7 +150,7 @@
   top: 0;
   right: 0;
   background: none;
-  background-image: url('../../../data/addDish_default.png');
+  /* background-image: url('../cart/$assets/shopping-cart-default.png'); */
   background-size: contain;
   border: none;
   width: 90px;
@@ -166,7 +166,7 @@
   opacity: 1;
 }
 .addDishBtn:active {
-  background-image: url('../../../data/addDish_active.png');
+  /* background-image: url('../cart/$assets/shopping-cart-active.png'); */
   transform: translateY(4px);
 }
 .addDishBtn::after {
@@ -215,7 +215,7 @@
   bottom: 6px;
   right: 14px;
   background: none;
-  background-image: url('../../../data/shopping-cart-default.png');
+  background-image: url('../cart/$assets/shopping-cart-default.png');
   background-size: contain;
   border: none;
   width: 32px;
@@ -231,7 +231,7 @@
   opacity: 1;
 }
 .addToCartBtn:active {
-  background-image: url('../../../data/shopping-cart-active.png');
+  background-image: url('../cart/$assets/shopping-cart-active.png');
   transform: translateY(4px);
 }
 .addToCartIcon {

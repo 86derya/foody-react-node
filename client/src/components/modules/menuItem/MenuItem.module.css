@@ -108,7 +108,7 @@ p {
   top: 20vw;
   left: 0px;
   background: none;
-  background-image: url('../../../data/shopping-cart-default.png');
+  background-image: url('../cart/$assets/shopping-cart-default.png');
   background-size: contain;
   border: none;
   width: 60px;
@@ -124,6 +124,6 @@ p {
   opacity: 1;
 }
 .addToCartBtn:active {
-  background-image: url('../../../data/shopping-cart-active.png');
+  background-image: url('../cart/$assets/shopping-cart-active.png');
   transform: translateY(4px);
 }

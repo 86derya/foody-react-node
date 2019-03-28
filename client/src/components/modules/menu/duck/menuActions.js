@@ -1,7 +1,7 @@
 import { normalize } from 'normalizr';
 
 import types from './menuActionsTypes';
-import itemsSchema from '../../../../configs/storeSchema';
+import itemsSchema from '../../../redux/$configs/storeSchema';
 
 const fetchRequest = () => ({
   type: types.MENU_FETCH_REQUEST,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import styles from '../Menu.module.css';
 import MenuGridCard from './MenuGridCardView';
 

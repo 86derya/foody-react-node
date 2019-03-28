@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 import actions from './menuActions';
+import baseURL from '../../../../configs/serverUrl';
 
-axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = baseURL;
 
 const fetchMenuItems = category => async dispatch => {
   dispatch(actions.fetchRequest());

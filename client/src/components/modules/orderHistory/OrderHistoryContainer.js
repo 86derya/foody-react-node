@@ -3,7 +3,7 @@ import OrdersHistoryTable from './orderTable/OrdersHistoryTable';
 import OrderDetailsTemplate from './orderTable/ModalOrderDetailsTemplate';
 import Modal from '../../modal';
 import styles from './OrderHistory.module.css';
-import * as API from '../../../services/api';
+import * as API from './$services/apiOrders';
 import Spinner from '../../spinner';
 
 export default class OrderHistory extends Component {
