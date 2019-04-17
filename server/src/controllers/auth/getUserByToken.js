@@ -5,7 +5,7 @@ var jwt = require("jsonwebtoken");
 const { idSerchSuccess, idSearchFailed } = require("./configs/responses");
 
 const getUserByToken = (request, response) => {
-  const token = request.headers["authorization"];
+  const token = request.headers.authorization;
   const cleanToken = token.replace("Bearer ", "").trim();
 
   const secretKey = app.get("superSecret");
@@ -20,7 +20,6 @@ const getUserByToken = (request, response) => {
     }
 
     userId = decoded.userid;
-    // console.log("userId", decoded);
     User.findById(userId)
       .then(user => idSerchSuccess(response, user))
       .catch(err => {

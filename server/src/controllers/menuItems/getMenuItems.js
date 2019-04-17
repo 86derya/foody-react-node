@@ -55,7 +55,7 @@ const getMenuItems = (request, response) => {
     foundtItems
       .populate("category")
       .populate("ingredients")
-      .populate("comments")
+      // .populate("comments")
       .exec(function(err, menuItems) {
         if (err) {
           allMenuItemsfromDbFailed(response, err);

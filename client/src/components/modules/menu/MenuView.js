@@ -3,7 +3,7 @@ import React from 'react';
 import Spinner from '../../spinner';
 import CategorySelector from './categorySelector';
 import FilterByName from './filterByName';
-import MenuGrid from './menuList/MenuGridView';
+import MenuGrid from './menuGrid/MenuGridView';
 import styles from './Menu.module.css';
 
 const Menu = ({

@@ -1,9 +1,10 @@
 .container {
   margin-right: 100px;
-  padding: 10px;
+  padding: 10px 10px 20px;
   position: absolute;
-  top: 50px;
+  top: 56px;
   width: 200px;
+  border-radius: 10px;
   background-color: rgb(165, 235, 165);
   box-shadow: 0 4px 8px 0 rgba(18, 58, 8, 0.2),
     0 6px 20px 0 rgba(6, 53, 9, 0.19);
@@ -12,6 +13,7 @@
   display: flex;
   margin: 0;
   padding: 0;
+  max-width: 200px;
   position: relative;
   right: 100px;
   align-items: center;
@@ -21,22 +23,22 @@
 }
 .loginedSpan {
   position: absolute;
-  top: -10px;
+  top: -18px;
   right: 0;
   font-style: italic;
   color: rgb(100, 93, 93);
 }
 .user_avatar {
   margin: 0;
-  margin-right: 20px;
-  width: 50px;
-  height: 50px;
+  margin-right: 10px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
 }
 .user_name {
   text-transform: uppercase;
   color: rgb(6, 58, 161);
-  font-size: 14px;
+  font-size: 16px;
 }
 .userMenu__list {
   margin: 0 auto;
@@ -51,8 +53,27 @@
   text-decoration: none;
   text-transform: uppercase;
   line-height: 15px;
+  color: black;
+}
+.userMenu__link:hover {
+  color: rgb(211, 133, 31);
 }
 .signOutBtn {
-  position: relative;
-  left: 140px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  background-image: url('https://img.icons8.com/dotty/80/000000/exit.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.signOutBtn:hover {
+  bottom: 8px;
 }

@@ -24,15 +24,15 @@ class SignUp extends Component {
     const { history } = this.props;
     signUp({ ...this.state }).then(({ data }) =>
       data.status === 'success'
-        ? (alert(
+        ? // eslint-disable-next-line no-alert
+          (alert(
             `User with nickName: < ${
               data.user.nickName
             } > created successfuly. Process to login with your credentials`,
           ),
           history.push(redirectTo))
-        : alert(`Try again`),
+        : (console.log(data), alert(data.reason)),
     );
-    this.reset();
   };
 
   handleChange = e => {
@@ -55,6 +55,7 @@ class SignUp extends Component {
           value={this.state[el.name]}
           autoComplete={el.autoComplete}
           placeholder={el.placeholder}
+          required={el.required}
         />
       </label>
     ));

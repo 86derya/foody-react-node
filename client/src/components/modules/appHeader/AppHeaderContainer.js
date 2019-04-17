@@ -12,7 +12,7 @@ import { signOut } from '../../session/sessionOperations';
 import styles from './AppHeader.module.css';
 
 const Header = ({ isAuthenticated, user, onSignOut, history, location }) => (
-  <div className={styles.header}>
+  <header className={styles.header}>
     <div className={styles.header__container}>
       <SiteLogo />
       <SiteNav />
@@ -23,15 +23,13 @@ const Header = ({ isAuthenticated, user, onSignOut, history, location }) => (
       )}
       <CartLink />
     </div>
-  </div>
+  </header>
 );
 
 const mapStateToProps = state => ({
   user: getUser(state),
   isAuthenticated: getIsAuthenticated(state),
 });
-
-const options = { pure: false };
 
 const mapDispatchToProps = {
   onSignOut: signOut,
@@ -40,6 +38,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-  null,
-  options,
 )(Header);

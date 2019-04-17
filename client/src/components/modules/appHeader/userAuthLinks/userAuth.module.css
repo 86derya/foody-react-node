@@ -2,29 +2,26 @@
   display: flex;
   position: absolute;
   right: 100px;
-  width: 200px;
+  width: 140px;
   justify-content: space-around;
 }
 
 .link {
   display: inline-block;
   cursor: pointer;
+  padding: 2px 4px;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 3px 12px;
   color: rgb(107, 163, 146);
-  font-size: 14px;
+  font-size: 12px;
   background-color: transparent;
 }
 .link_active {
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
-  padding: 3px 12px;
-  font-size: 15px;
   background-color: rgb(215, 236, 138);
-  border-radius: 40%;
-  transform: scale(1.2);
+  border-radius: 10px;
   box-shadow: 0 2px 2px 0 rgba(18, 58, 8, 0.2),
     0 6px 20px 0 rgba(10, 148, 141, 0.19);
 }

@@ -1,15 +1,14 @@
 .menu {
   display: block;
   margin: 0 auto;
-  padding: 20px;
-  background-color: rgba(120, 252, 230, 0.986);
+  padding: 0px 20px 30px 20px;
 }
 .container {
   position: relative;
   display: block;
   margin: 0 auto;
-  padding: 20px;
-  width: 1260px;
+  padding: 0px 20px 30px 70px;
+  width: 1100px;
 }
 .input,
 .filterByName_input {
@@ -19,12 +18,18 @@
   padding: 6px 6px;
   border-radius: 8px;
   font-size: 16px;
+  outline: none;
+}
+.filterByName_input:focus {
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(43, 103, 182, 0.75);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(20, 73, 153, 0.75);
+  box-shadow: 0px 0px 8px 0px rgba(25, 113, 172, 0.75);
 }
 .filterByName_summary {
   position: absolute;
   color: rgb(17, 14, 14);
-  left: 454px;
-  top: 90px;
+  left: 480px;
+  top: 55px;
 }
 .filterByName_filterBy {
   color: rgb(143, 5, 197);
@@ -74,24 +79,23 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: 4px;
   padding: 10px;
   list-style: none;
   text-decoration: none;
-  width: 284px;
-  height: 300px;
+  width: 300px;
+  height: 340px;
   background-color: rgb(165, 235, 165, 0.6);
   box-shadow: 0 4px 8px 0 rgba(18, 58, 8, 0.2),
     0 6px 20px 0 rgba(201, 219, 202, 0.19);
 
   border-radius: 8px;
 }
-/* .menu_item:not(:nth-child(-n + 4)) {
+.menu_item:not(:nth-child(-n + 3)) {
   margin-top: 20px;
 }
-.menu_item:not(:nth-child(4n)) {
+.menu_item:not(:nth-child(3n)) {
   margin-right: 27px;
-} */
+}
 .menu_item:hover {
   transition: 5;
   background-color: rgb(165, 235, 165, 0.9);
@@ -107,12 +111,14 @@
   margin: 0 auto;
   max-width: 90%;
   height: 200px;
+  border-radius: 10px;
 }
 .menu_card_title {
   display: block;
   margin: 10px auto;
   padding: 0;
   width: 100%;
+  font-size: 18px;
   font-weight: 700;
 }
 .menu_card_price {
@@ -120,12 +126,16 @@
   bottom: 6px;
   margin: 0;
   padding: 0;
+  color: rgb(80, 38, 10);
+  font-size: 16px;
+  font-weight: 400;
 }
 .menu_card_description {
   display: block;
   margin: 0;
   margin-bottom: 10px;
   padding: 0;
+  font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -138,7 +148,7 @@
   left: 6px;
   right: 6px;
   color: black;
-  background-color: rgb(235, 183, 135);
+  background-color: rgb(171, 223, 141);
   white-space: initial;
 }
 .addDish__link {
@@ -185,12 +195,12 @@
 
 .select {
   margin: 20px 0;
-  width: 416px;
+  width: 400px;
 }
 .categorySelector_container {
   position: absolute;
-  left: 442px;
-  top: 50px;
+  left: 470px;
+  top: 12px;
 }
 .selectedCategory__descr {
   display: inline;

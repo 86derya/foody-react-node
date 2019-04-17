@@ -4,6 +4,12 @@
   display: flex;
   /* right: 60px; */
 }
+.container:hover {
+  position: absolute;
+  right: 40px;
+  display: flex;
+  top: 24px;
+}
 
 .amount {
   position: absolute;

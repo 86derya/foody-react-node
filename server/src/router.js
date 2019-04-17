@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const mainRoute = require("./controllers/main/main");
 const { login, logout, signUp, getUserByToken } = require("./controllers/auth");
 const verifyToken = require("./modules/verifyToken");
@@ -31,14 +32,13 @@ const { getAllCategories } = require("./controllers/categories");
 const apiRoutes = express.Router();
 
 apiRoutes
-
   .post("/auth/login", login)
   .post("/auth/register", signUp)
   .post("/menu", createMenuItem)
   .get("/menu", getMenuItems)
   .get("/menu/:id", getMenuItemById)
   .get("/categories", getAllCategories)
-  // .put("/menu/:id/comments", createComment)
+  .put("/menu/:id/comments", createComment)
   .get("/", mainRoute)
   .get("/users", getUsers)
   .get("/users/:id", getUserById)

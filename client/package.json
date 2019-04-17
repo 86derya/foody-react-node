@@ -12,6 +12,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.8",
     "react-select": "^2.2.0",
+    "react-transition-group": "^4.0.0",
     "reactstrap": "^7.1.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
@@ -29,7 +30,8 @@
     "precommit": "lint-staged",
     "lint": "eslint src/**/*.{js,jsx}",
     "format": "eslint src/**/*.{js,jsx} --fix",
-    "server": "json-server --watch server/menu_db.json --port 3001"
+    "server": "http://localhost:8080",
+    "proxy": "http://localhost:8080"
   },
   "eslintConfig": {
     "extends": "react-app"

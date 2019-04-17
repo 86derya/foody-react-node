@@ -41,7 +41,7 @@ class SignIn extends Component {
           name={el.name}
           type={el.type}
           value={this.state[el.name]}
-          // autoComplete={el.autoComplete}
+          required={el.required}
           placeholder={el.placeholder}
         />
       </label>

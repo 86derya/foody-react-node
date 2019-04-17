@@ -28,9 +28,7 @@ class DropDown extends PureComponent {
           className={styles.signOutBtn}
           type="button"
           onClick={this.handleSignOut}
-        >
-          Log Out
-        </button>
+        />
       </div>
     );
   }

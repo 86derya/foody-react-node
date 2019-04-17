@@ -12,7 +12,7 @@ export default Object.freeze({
   CONTACT: '/contact',
   DELIVERY: '/delivery',
   FAVORITES: '/favorites',
-  SIGN_IN: '/sign-in',
+  SIGN_IN: '/login',
   SIGN_UP: '/sign-up',
   NOT_FOUND: '*',
 });

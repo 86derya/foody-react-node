@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Spinner from '../../spinner';
 import DishItem from './DishView';
+// import CommentsListView from './CommentsListView';
 import styles from './MenuItem.module.css';
 import ratingOptions from './$configs/ratingOptions';
-import getMenuItemById from './$services/api';
+import * as api from './$services/api';
+import getUserName from './duck/menuItemSelectors';
 import routes from '../../../configs/routes';
-
 import { cartActions } from '../cart/duck';
 
 const INITIAL_STATE = {
   commentText: '',
-  commentRating: '-',
-  ID: null,
+  commentRating: 0,
   dishItem: {},
+  commentsToView: [],
+  showComments: false,
   isLoading: false,
 };
 
@@ -21,27 +24,49 @@ class DishContainer extends Component {
   state = { ...INITIAL_STATE };
 
   componentDidMount() {
+    this.setState({
+      isLoading: true,
+    });
+
     const { id } = this.props;
-    // console.log(id);
-    getMenuItemById(id).then(data => {
+    api.getMenuItemById(id).then(data => {
       const { menuItem } = data;
       this.setState({
         dishItem: menuItem,
+        isLoading: false,
+        commentsToView: [...menuItem.comments],
       });
     });
   }
 
-  // updateCommentList = () => {
-  //   const { commentText, commentRating, dishItem } = this.state;
-  //   if (commentText.length > 0 || commentRating > 0) {
-  //     commentToSubmit.id = v4();
-  //     commentToSubmit = { ...this.state };
+  handleCommentSubmit = evt => {
+    evt.preventDefault();
+    const { commentText, commentRating, commentsToView } = this.state;
+    const { userName, id } = this.props;
+    if (!commentRating && commentText.length < 1) return;
 
-  //     DishListRated.find(dish => dish.id === dishItem.id).comments.push(
-  //       commentToSubmit,
-  //     );
-  //   }
-  // };
+    const commentToSubmit = {
+      mark: commentRating,
+      text: commentText,
+      Author: userName || 'anonymous',
+    };
+    this.setState({
+      isLoading: true,
+    });
+    api.postMenuItemComment(id, commentToSubmit).then(data =>
+      data.status !== 'success'
+        ? // eslint-disable-next-line no-alert
+          (this.reset(), alert('something went wrong'))
+        : (this.setState({
+            commentsToView: [
+              ...commentsToView,
+              data.menuItem.comments[data.menuItem.comments.length - 1],
+            ],
+            showComments: true,
+          }),
+          this.reset()),
+    );
+  };
 
   handleTextAreaChange = ({ target: { value } }) => {
     this.setState({
@@ -53,12 +78,6 @@ class DishContainer extends Component {
     this.setState({
       commentRating: Math.round(value),
     });
-  };
-
-  handleFormSubmit = evt => {
-    evt.preventDefault();
-    // this.updateCommentList();
-    this.reset();
   };
 
   handleGoBack = () => {
@@ -75,58 +94,89 @@ class DishContainer extends Component {
         });
   };
 
+  toggleShowComments = () => {
+    this.setState(state => ({
+      showComments: !state.showComments,
+    }));
+  };
+
   reset = () => {
-    this.setState({ ...INITIAL_STATE });
+    this.setState({
+      commentText: '',
+      commentRating: 0,
+      isLoading: false,
+    });
   };
 
   render() {
-    const { dishItem, commentText, commentRating } = this.state;
+    const {
+      dishItem,
+      commentText,
+      commentRating,
+      isLoading,
+      commentsToView,
+      showComments,
+    } = this.state;
     const { id, onAddToCart } = this.props;
+
     const ratingOption = ratingOptions.map(option => (
-      <option key={option} value={option}>
+      <option
+        className={styles.comment__rating_option}
+        key={option}
+        value={option}
+      >
         {option}
       </option>
     ));
 
-    // const { comments } = dishItem;
-    // const commentItem = comments.map(item => (
-    //   <li className={styles.comments__item} key={item.id}>
-    //     <p className={styles.comment__text}>{item.commentText}</p>
-    //     <p className={styles.comment__rating}>Rated: {item.commentRating}</p>
-    //   </li>
-    // ));
-    return (
+    const commentItem = commentsToView
+      ? commentsToView
+          .sort((a, b) => {
+            const c = new Date(a.createdAt);
+            const d = new Date(b.createdAt);
+            return d - c;
+          })
+          .map(({ _id, Author, createdAt, text, mark }) => (
+            <li className={styles.comments__item} key={_id}>
+              <span className={styles.comments__item_author}>{Author}</span>
+              <span className={styles.comments__item_date}>{createdAt}</span>
+              <p className={styles.comments__item_text}>{text}</p>
+              {mark ? (
+                <p className={styles.comments__item_rating}>Rated: {mark}</p>
+              ) : null}
+            </li>
+          ))
+      : null;
+
+    return isLoading ? (
+      <Spinner />
+    ) : (
       <>
+        <button
+          className={styles.goBackBtn}
+          onClick={this.handleGoBack}
+          type="button"
+        />
         <section className={styles.dish_page}>
           <div className={styles.container}>
-            <DishItem currentDish={dishItem} />
-            <button
-              className={styles.goBackBtn}
-              onClick={this.handleGoBack}
-              type="button"
-            >
-              <img
-                src="https://cdn3.iconfinder.com/data/icons/glyph/227/Button-Back-1-512.png"
-                alt="goBack"
-              />
-            </button>
-            <button
-              type="button"
-              className={styles.addToCartBtn}
-              onClick={() => onAddToCart(id)}
+            <DishItem
+              currentDish={dishItem}
+              onAddToCart={onAddToCart}
+              id={id}
             />
-            <div className={styles.dish__user_feeddback}>
-              Comments:
-              {/* <ul className={styles.comments_list}> {commentItem} </ul> */}
-              <form onSubmit={this.handleFormSubmit}>
+            <div className={styles.dish__comments_container}>
+              <form
+                className={styles.comments__form}
+                onSubmit={this.handleCommentSubmit}
+              >
                 <textarea
                   className={styles.comments__input_text}
                   onChange={this.handleTextAreaChange}
                   value={commentText}
-                  placeholder="Leave Your comment..."
+                  placeholder="comment..."
                 />
                 <label className={styles.comments__rating_label}>
-                  Rate the dish
+                  Rate
                   <select
                     className={styles.comments__rating_select}
                     name="rating"
@@ -136,10 +186,28 @@ class DishContainer extends Component {
                     {ratingOption}
                   </select>
                 </label>
-                <button className={styles.button} type="submit">
-                  Leave comment
+                <button className={styles.submitCommentBtn} type="submit">
+                  Submit
                 </button>
               </form>
+              <div className={styles.comments__list_wrap}>
+                <button
+                  type="button"
+                  className={styles.showCommentsBtn}
+                  onClick={this.toggleShowComments}
+                >
+                  Comments
+                  {!showComments ? (
+                    <span className={styles.showComments__show}> Show</span>
+                  ) : (
+                    <span className={styles.showComments__hide}> Hide</span>
+                  )}
+                </button>
+                {showComments && (
+                  // <CommentsListView comments={commentsToView} />//TODO
+                  <ul className={styles.comments_list}> {commentItem} </ul>
+                )}
+              </div>
             </div>
           </div>
         </section>
@@ -147,11 +215,13 @@ class DishContainer extends Component {
     );
   }
 }
-
+const mapStateToProps = state => ({
+  userName: getUserName(state),
+});
 const mapDispatchToProps = {
   onAddToCart: cartActions.addToCart,
 };
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(DishContainer);

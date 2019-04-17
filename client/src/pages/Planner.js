@@ -1,8 +1,5 @@
 import React from 'react';
 
-const PlannerPage = () => (
-  <div>
-    <h1>Planner Page</h1>
-  </div>
-);
+const PlannerPage = () => <h1>This option will be added soon...</h1>;
+
 export default PlannerPage;

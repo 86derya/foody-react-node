@@ -4,21 +4,24 @@
     "type": "nickName",
     "placeholder": "Your desired nickName...",
     "autoComplete": "off",
-    "label": "nickName"
+    "label": "nickName",
+    "required": true
   },
   {
     "name": "password",
     "type": "password",
     "placeholder": "Password...",
     "autoComplete": "off",
-    "label": "Password"
+    "label": "Password",
+    "required": true
   },
   {
     "name": "email",
     "type": "email",
     "placeholder": "Email...",
     "autoComplete": "off",
-    "label": "@mail"
+    "label": "@mail",
+    "required": true
   },
   {
     "name": "phone",

@@ -9,7 +9,7 @@ const user = (state = null, { type, payload }) => {
       return payload.user;
 
     case actionTypes.AUTH_ERROR:
-      alert('case actionTypes.AUTH_ERROR', payload);
+      alert('Invalid login or password');
       return payload;
     case actionTypes.SIGN_OUT_SUCCESS:
       return null;

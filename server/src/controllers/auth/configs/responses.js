@@ -21,10 +21,10 @@ module.exports = {
     response.json({ status: "success", user: user });
   },
   userCreatedFail: function(response, reason = "User creation failed") {
-    response.status(400);
+    // response.status(400);
     response.json({
       status: "failed",
-      user: reason
+      reason: reason
     });
   },
   idSerchSuccess: function(response, foundId) {

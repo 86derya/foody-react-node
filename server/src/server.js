@@ -33,6 +33,8 @@ const options = {
 
 const startServer = port => {
   app
+    // .options("*", cors())
+    .use(cors())
     .set("superSecret", config.secret)
     .use(bodyParser.urlencoded({ extended: false }))
     .use(bodyParser.json())
@@ -40,9 +42,9 @@ const startServer = port => {
     // .use(checkAuth)
     .use(express.static(staticPath))
     .use("/", router)
-    .use(cors())
     .disable("etag") //disables 304
     .use(errorHandler);
+
   http.createServer(app).listen(port);
 
   console.log("Server is running at http://localhost:" + port);

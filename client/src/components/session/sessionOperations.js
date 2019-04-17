@@ -22,6 +22,9 @@ const setBaseURL = () => {
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
+// const setHeader = () => {
+//   axios.defaults.headers = {};
+// };
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = null;
 };
@@ -29,8 +32,8 @@ const clearAuthHeader = () => {
 export const signIn = credentials => dispatch => {
   setBaseURL();
   dispatch(authRequest());
-
-  axios
+  // console.log('credentials', credentials);
+  return axios
     .post('/auth/login', credentials)
     .then(({ data }) =>
       data.status === 'success'
@@ -62,13 +65,15 @@ export const getCurrentUser = () => (dispatch, getState) => {
   const token = getToken(getState());
 
   if (!token) return;
+
   setBaseURL();
   setAuthHeader(token);
   dispatch(getCurrentUserRequest());
 
   axios
-    .post('/auth/current')
+    .post('/auth/current', {})
     .then(({ data }) => {
+      // console.log('data ', data);
       setAuthHeader(token);
       return dispatch(getCurrentUserSuccess(data.user));
     })

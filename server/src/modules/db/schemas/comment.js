@@ -3,19 +3,13 @@ const { Schema } = mongoose;
 const timestamp = require("../middleware/timestamp");
 const uniqueValidator = require("mongoose-unique-validator");
 const ObjectId = mongoose.Schema.Types.ObjectId;
-const USER = require("./user");
-const MENU_ITEM = require("./menu-item");
 
 const commentSchema = new Schema({
   id: ObjectId,
-  menuItem: {
-    type: ObjectId,
-    ref: MENU_ITEM
-  },
   text: String,
-  name: {
-    ObjectId,
-    ref: USER
+  Author: {
+    type: String,
+    default: "anonymous"
   },
   mark: {
     type: Number,

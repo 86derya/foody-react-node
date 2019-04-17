@@ -18,16 +18,21 @@ const userSchema = new Schema({
   email: { type: String, required: true, unique: true },
   orders: [
     {
-      type: ObjectId,
-      ref: ORDER
-    }
-  ],
-  comments: [
-    {
-      type: ObjectId,
-      ref: COMMENT
+      productsList: [
+        { productId: String, type: { type: String }, itemsCount: Number }
+      ],
+      deliveryType: String,
+      deliveryAdress: String,
+      sumToPay: Number,
+      status: String
     }
   ]
+  // comments: [
+  //   {
+  //     type: ObjectId,
+  //     ref: COMMENT
+  //   }
+  // ]
 });
 
 userSchema.plugin(timestamp);
